@@ -3,8 +3,6 @@
 
 # 21/1/2025
 
-
-
 ## Zulqi
 1. Find Requirements For E-Commerce System Create Work Flow 
 2. Create Work Structure 
@@ -18,3 +16,6 @@
 ## Adnan 
 1. Collaborate With Zulqi
 
+## Rohail 
+
+1. Collaborate With Zulqi
