@@ -1,4 +1,3 @@
-## Your Taks Will Be There 
 # In This Practice Project we are going to create an E-Commerce System as an Example 
 
 # 21/1/2025
