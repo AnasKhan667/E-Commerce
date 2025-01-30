@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail</title>
+  </head>
+  <body>
+    <header>
+      <h1>Product Detail</h1>
+    </header>
+
+    <main>
+      <h2>{{ single_product.product_name }}</h2>
+      <img
+        src="{{ single_product.image.url }}"
+        alt="{{ single_product.name }}"
+        width="300"
+      />
+      <p><strong>Price:</strong> ${{ single_product.price }}</p>
+      <p><strong>Description:</strong>{{ single_product.description }}</p>
+      <p><strong>Category:</strong> {{ single_product.category }}</p>
+
+      {% if single_product.stock <= 0 %}
+      <p><strong>Availability:</strong> Out Of Stock</p>
+      {% else %}
+      <a href="{% url 'add_cart' single_product.id %}">
+        <button>Add to Cart</button>
+      </a>
+      {% endif %}
+    </main>
+  </body>
+</html>

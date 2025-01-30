@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h2>Click Here To Render <a href="store/"> Store </a> Page</h2>
+    <br />
+
+    <h2><a href="{% url 'store' %}">All Products</a></h2>
+    {% for category in links %}
+    <a href="{{ category.get_url }}">{{ category.category_name }}</a>
+    {% endfor %}
+    <!-- <a href="{{ category.get_url }}"> {{ Category.category_name }} </a> -->
+    <br />
+
+    <h2>this is home page, hello</h2>
+    <h3>Products Objects</h3>
+    <ul>
+      {% for product in products %}
+      <li>
+        <a href="{{product.get_url}}"> <h2>{{ product.product_name }}</h2></a>
+        <a href="{{ product.get_url }}">
+          <img
+            src="{{ product.image.url }}"
+            alt="{{ product.product_name }}"
+            width="100"
+          />
+        </a>
+        <p>Category: {{ product.category }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

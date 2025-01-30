@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+  </head>
+  <body>
+    {% if cart_items %}
+    <ul>
+      {% for item in cart_items %}
+      <div
+        style="
+          border: 1px solid #ccc;
+          padding: 15px;
+          margin-bottom: 20px;
+          border-radius: 5px;
+          width: 300px;
+        "
+      >
+        <p><strong>Product 1</strong></p>
+        <form method="POST" action="#">
+          <button type="submit" name="decrease" value="product1">-</button>
+          <input
+            type="text"
+            name="quantity"
+            value="1"
+            readonly
+            style="width: 50px; text-align: center"
+          />
+          <button type="submit" name="increase" value="product1">+</button>
+        </form>
+        <p>Price: $10.00</p>
+        <button
+          style="
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Remove
+        </button>
+      </div>
+      <li>{{ item.product.product_name }} - Quantity: {{ item.quantity }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+
+    <!-- Product 1 -->
+
+    <!-- Checkout Button -->
+  </body>
+</html>
