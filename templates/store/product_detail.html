@@ -1,4 +1,34 @@
-<!DOCTYPE html>
+{% extends "base.html" %} 
+
+{% block title %} Product Details {% endblock %} 
+
+{% block content %}
+<div class="container mt-4 d-flex justify-content-center">
+  <div class="card h-100 shadow-sm rounded-top-4" style="width: 350px;">
+    <img src="{{ single_product.image.url }}" class="card-img-top img-fluid" alt="{{ single_product.product_name }}" style="width: 300px; height: 300px; object-fit: cover;" />
+    <div class="card-body">
+      <h2 class="card-title text-center">{{ single_product.product_name }}</h2>
+      <p class="card-text"><strong>Description:</strong> {{ single_product.description }}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="text-muted"><strong>Price:</strong> ${{ single_product.price }}</span>
+        <p><strong>Category:</strong> {{ single_product.category }}</p>
+      </div>
+      
+      {% if single_product.stock > 0 %}
+        <div class="d-grid gap-2 mt-3">
+          <a href="{% url 'add_cart' single_product.id %}" class="btn btn-primary">Add to Cart</a>
+        </div>
+      {% else %}
+        <p class="text-danger mt-3 text-center"><strong>Availability:</strong> Out Of Stock</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,3 +61,4 @@
     </main>
   </body>
 </html>
+{% endcomment %}

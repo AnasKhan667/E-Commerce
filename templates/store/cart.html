@@ -1,4 +1,39 @@
-<!DOCTYPE html>
+{% extends "base.html" %} 
+
+{% block title %} Shopping Cart {% endblock %} 
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Shopping Cart</h2>
+  
+  {% if cart_items %}
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+      {% for item in cart_items %}
+      <div class="col">
+        <div class="card shadow-sm p-3" style="width: 300px;">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ item.product.product_name }}</h5>
+            <p class="card-text">Price: ${{ item.product.price }}</p>
+            <form method="POST" action="#" class="d-flex justify-content-center align-items-center">
+              <button type="submit" name="decrease" value="{{ item.product.id }}" class="btn btn-outline-secondary">-</button>
+              <input type="text" name="quantity" value="{{ item.quantity }}" readonly class="form-control text-center mx-2" style="width: 50px;" />
+              <button type="submit" name="increase" value="{{ item.product.id }}" class="btn btn-outline-secondary">+</button>
+            </form>
+            <button class="btn btn-danger mt-3">Remove</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-center">Your cart is empty.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -56,4 +91,4 @@
 
     <!-- Checkout Button -->
   </body>
-</html>
+</html> {% endcomment %}
