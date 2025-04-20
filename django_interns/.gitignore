@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+media/
+staticfiles/
+local_settings.py
+db.sqlite3
+
+# Ignore settings file (edit path as needed)
+*/settings.py
+# or
+project_name/settings.py  # Replace with your actual path
+
+# VS Code
+.vscode/
+
+# Env
+.env
+venv/
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
